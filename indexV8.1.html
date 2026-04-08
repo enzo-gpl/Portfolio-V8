@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Enzo GOUPIL | BTS SIO</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --bg-dark: #0a0f1c;
+            --bg-card: rgba(30, 41, 59, 0.4);
+            --primary: #3b82f6;
+            --accent: #06b6d4;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --gradient-main: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+            --glass-blur: blur(12px);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .logo { font-family: 'Outfit', sans-serif; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: var(--glass-border);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul { display: flex; gap: 30px; }
+        
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            position: relative;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active { color: var(--text-main); }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gradient-main);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after { width: 100%; }
+
+        /* --- STYLES GENERAUX (HERO, SECTIONS) --- */
+        section { padding: 6rem 10%; }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        .btn-glow, .btn-outline {
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            transition: 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-glow {
+            background: var(--gradient-main);
+            color: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            border: none;
+        }
+        .btn-glow:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(6, 182, 212, 0.6); }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(6, 182, 212, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        .section-title span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- PARCOURS TIMELINE --- */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
+        .timeline::after {
+            content: ''; position: absolute; width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+            top: 0; bottom: 0; left: 50%; margin-left: -1px;
+        }
+        .timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; }
+        .timeline-content {
+            padding: 30px; background: var(--bg-card); backdrop-filter: blur(10px);
+            border: var(--glass-border); border-radius: 15px; transition: 0.3s;
+        }
+        .timeline-content:hover { transform: translateY(-5px); border-color: var(--primary); }
+        
+        .timeline-dot {
+            position: absolute; width: 16px; height: 16px; background: var(--bg-dark);
+            border: 2px solid var(--accent); border-radius: 50%; top: 35px; z-index: 10;
+        }
+        /* MODIFICATION ICI : Centrage des points sur la ligne centrale */
+        /* Avant : -48px (trop loin) -> Maintenant : -8px (parfaitement centré car le point fait 16px de large, donc 16/2 = 8) */
+        .left .timeline-dot { right: -8px; }
+        .right .timeline-dot { left: -8px; }
+
+        /* --- SKILLS GRID --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .skill-card {
+            background: var(--bg-card); border: var(--glass-border); border-radius: 20px;
+            padding: 2.5rem; transition: 0.4s; position: relative; overflow: hidden;
+        }
+        .skill-card:hover { transform: translateY(-5px); background: rgba(30, 41, 59, 0.6); }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .card-header i { font-size: 1.8rem; color: var(--accent); }
+        .skill-items { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        /* BOUTON COMPETENCE CLIQUABLE */
+        .skill-tag {
+            background: rgba(255,255,255,0.05); padding: 8px 14px; border-radius: 8px;
+            font-size: 0.9rem; color: #cbd5e1; border: 1px solid transparent; transition: 0.3s;
+            display: flex; align-items: center; gap: 8px; cursor: pointer;
+        }
+        .skill-tag:hover {
+            border-color: var(--primary); color: white; background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* --- VEILLE & LOISIRS --- */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .info-card {
+            background: var(--bg-card); border: var(--glass-border); border-radius: 15px;
+            padding: 2rem; transition: 0.3s;
+        }
+        .info-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .info-icon { font-size: 2rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+        /* --- CONTACT --- */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: center; }
+        .contact-actions { display: flex; flex-direction: column; gap: 20px; }
+        .action-card {
+            background: var(--bg-card); padding: 1.5rem 2rem; border-radius: 15px;
+            border: var(--glass-border); display: flex; align-items: center; gap: 20px; transition: 0.3s;
+        }
+        .action-card:hover { background: rgba(59, 130, 246, 0.1); border-color: var(--accent); }
+        .action-icon {
+            width: 50px; height: 50px; background: rgba(255,255,255,0.05); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: var(--accent);
+        }
+
+        /* --- PAGES DE DETAILS COMPETENCES (CACHÉES PAR DÉFAUT) --- */
+        .skill-page {
+            display: none; /* Caché par défaut */
+            padding-top: 120px;
+            padding-bottom: 60px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .skill-container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        
+        .btn-back {
+            display: inline-flex; align-items: center; gap: 10px; color: var(--text-muted);
+            font-weight: 600; margin-bottom: 40px; cursor: pointer; transition: 0.3s;
+            padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-back:hover { background: rgba(255,255,255,0.05); color: white; border-color: var(--primary); }
+
+        .skill-header { text-align: center; margin-bottom: 60px; }
+        .skill-icon-large {
+            font-size: 4rem; background: var(--gradient-main); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; margin-bottom: 20px;
+        }
+        .details-card {
+            background: var(--bg-card); border: var(--glass-border); border-radius: 20px;
+            padding: 40px; backdrop-filter: blur(10px); margin-bottom: 30px;
+        }
+        .details-card h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.8rem; margin-bottom: 20px;
+            color: var(--text-main); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;
+        }
+        .details-card ul li { margin-bottom: 10px; color: var(--text-muted); }
+        .details-card ul li::before { content: "▹"; color: var(--accent); margin-right: 10px; }
+        .code-block {
+            background: #020617; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace;
+            color: #38bdf8; border: 1px solid rgba(255,255,255,0.1); margin: 15px 0; font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer-bottom { background: #020617; text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; background: rgba(15, 23, 42, 0.95); }
+            nav ul { font-size: 0.85rem; }
+            .hero h1 { font-size: 3rem; }
+            .timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; }
+            .left { text-align: left; }
+            .left .timeline-dot, .right .timeline-dot { left: 11px; right: auto; }
+            .contact-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Enzo<span style="color:var(--accent)"> </span>Goupil</div>
+        <nav>
+            <ul>
+                <li><a onclick="showHome()">Accueil</a></li>
+                <li><a onclick="showHome('#parcours')">Parcours</a></li>
+                <li><a onclick="showHome('#competences')">Compétences</a></li>
+                <li><a onclick="showHome('#loisirs')">Loisirs</a></li>
+                <li><a onclick="showHome('#contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home-view">
+        
+        <section id="about" class="hero">
+            <div class="badge">Étudiant BTS SIO</div>
+            <h1>Futur Admin Sys<br>& Développeur</h1>
+            <p>Passionné par l'infrastructure réseau et la cybersécurité. Je transforme des problèmes complexes en solutions techniques fiables.</p>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                <a href="#contact" class="btn-glow">Me Contacter <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="CV.pdf" download="CV_Enzo_Goupil" class="btn-outline"><i class="fa-solid fa-download"></i> Télécharger mon CV</a>
+                <a href="03- tableau-de-synthese-E5 Enzo.xlsx" download="Tableau_Synthese_E5_Enzo" class="btn-outline"><i class="fa-solid fa-file-excel"></i> Tableau de Synthèse</a>
+            </div>
+        </section>
+
+        <section id="parcours">
+            <h2 class="section-title">Mon <span>Parcours</span></h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span style="color:var(--accent); font-size:0.8rem;">2024 - 2026 (En cours)</span>
+                        <h3>BTS SIO</h3>
+                        <p style="color:#94a3b8; font-size:0.9rem;">Services Informatiques aux Organisations</p>
+                        <p style="margin-top:10px;">Spécialisation en infrastructure, virtualisation (VMware) et sécurisation des données.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span style="color:var(--accent); font-size:0.8rem;">2021 - 2024</span>
+                        <h3>Bac Pro SN - RISC</h3>
+                        <p style="color:#94a3b8; font-size:0.9rem;">Mention Bien</p>
+                        <p style="margin-top:10px;">Acquisition des fondamentaux : câblage, configuration Cisco et télécoms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences">
+            <h2 class="section-title">Mes <span>Compétences</span></h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <div class="card-header"><i class="fa-solid fa-server"></i><h3>Système & Réseau</h3></div>
+                    <div class="skill-items">
+                        <div class="skill-tag" onclick="showSkill('windows')"><i class="fa-brands fa-windows"></i> Windows Server</div>
+                        <div class="skill-tag" onclick="showSkill('linux')"><i class="fa-brands fa-linux"></i> Linux (Debian)</div>
+                        <div class="skill-tag" onclick="showSkill('cisco')"><i class="fa-solid fa-network-wired"></i> Cisco CCNA</div>
+                        <div class="skill-tag" onclick="showSkill('vmware')"><i class="fa-solid fa-box-open"></i> VMware ESXi</div>
+                        <div class="skill-tag" onclick="showSkill('vlan')"><i class="fa-solid fa-cloud"></i> VLAN & Routage</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-header"><i class="fa-solid fa-shield-halved"></i><h3>Sécurité & Outils</h3></div>
+                    <div class="skill-items">
+                        <div class="skill-tag" onclick="showSkill('pfsense')"><i class="fa-solid fa-fire"></i> Pfsense / Stormshield</div>
+                        <div class="skill-tag" onclick="showSkill('veeam')"><i class="fa-solid fa-floppy-disk"></i> Veeam Backup</div>
+                        <div class="skill-tag" onclick="showSkill('glpi')"><i class="fa-solid fa-ticket"></i> GLPI</div>
+                        <div class="skill-tag" onclick="showSkill('centreon')"><i class="fa-solid fa-eye"></i> Centreon / Nagios</div>
+                        <div class="skill-tag" onclick="showSkill('cyber')"><i class="fa-solid fa-lock"></i> Sensibilisation Cyber</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-header"><i class="fa-solid fa-code"></i><h3>Développement</h3></div>
+                    <div class="skill-items">
+                        <div class="skill-tag" onclick="showSkill('htmlcss')"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</div>
+                        <div class="skill-tag" onclick="showSkill('php')"><i class="fa-brands fa-php"></i> PHP & SQL</div>
+                        <div class="skill-tag" onclick="showSkill('bash')"><i class="fa-solid fa-terminal"></i> Bash & PowerShell</div>
+                        <div class="skill-tag" onclick="showSkill('python')"><i class="fa-brands fa-python"></i> Python</div>
+                        <div class="skill-tag" onclick="showSkill('git')"><i class="fa-brands fa-git-alt"></i> Git / GitHub</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="veille">
+            <h2 class="section-title">Ma <span>Veille Techno</span></h2>
+            <div class="cards-grid">
+                <div class="info-card">
+                    <i class="fa-solid fa-network-wired info-icon" style="color:#f97316;"></i>
+                    <h3>IT-Connect</h3>
+                    <p>Ma référence pour l'administration système.</p>
+                    <a href="https://www.it-connect.fr/" target="_blank" style="color:var(--accent);">Voir le site &rarr;</a>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-microchip info-icon" style="color:#22c55e;"></i>
+                    <h3>PhoenixJP.info</h3>
+                    <p>Pour les scripts et dépannages Windows.</p>
+                    <a href="https://phoenixjp.info/" target="_blank" style="color:var(--accent);">Voir le site &rarr;</a>
+                </div>
+                <div class="info-card">
+                    <i class="fa-brands fa-youtube info-icon" style="color:#ff0000;"></i>
+                    <h3>YouTube Tech</h3>
+                    <p>NetworkChuck, Grafikart pour la théorie.</p>
+                    <a href="https://www.youtube.com/" target="_blank" style="color:var(--accent);">Voir le site &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="loisirs">
+            <h2 class="section-title">Mes <span>Loisirs</span></h2>
+            <div class="cards-grid">
+                <div class="info-card">
+                    <i class="fa-solid fa-person-skiing info-icon" style="color:#a855f7;"></i>
+                    <h3>Ski & musculation</h3>
+                    <p>Avec ma famille ou mé amis.⛷️</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-dumbbell info-icon" style="color:#eab308;"></i>
+                    <h3>Nouvelles technologies et jeux vidéo</h3>
+                    <p>IA, innovation et nouvelles technologies</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-car info-icon" style="color:#38bdf8;"></i>
+                    <h3>Actualités et Nouveautés automobiles</h3>
+                    <p>Innovation, sportivité</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Me <span>Contacter</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Discutons ensemble</h3>
+                    <p style="color:var(--text-muted); margin-bottom:20px;">Recherche d'alternance ou de stage.</p>
+                    <div style="display:flex; gap:10px; align-items:center; margin-bottom:10px;">
+                        <i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> Caen, Normandie
+                    </div>
+                    <div style="display:flex; gap:15px; margin-top:20px;">
+                        <a href="#" style="font-size:1.5rem;"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" style="font-size:1.5rem;"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="contact-actions">
+                    <a href="mailto:enzo.goupil@sts-sio-caen.info" class="action-card">
+                        <div class="action-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <h4>M'envoyer un Email</h4>
+                            <span style="color:var(--text-muted); font-size:0.9rem;">enzo.goupil@sts-sio-caen.info</span>
+                        </div>
+                    </a>
+                    <a href="tel:+33769510209" class="action-card">
+                        <div class="action-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h4>M'appeler</h4>
+                            <span style="color:var(--text-muted); font-size:0.9rem;">07 69 51 02 09</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="skill-windows" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Windows Server</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Installation et configuration de Windows Server 2019/2022.</li>
+                    <li>Gestion des utilisateurs et groupes via Active Directory (AD DS).</li>
+                    <li>Configuration DNS, DHCP et Stratégies de groupe (GPO).</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-linux" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Linux (Debian)</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Installation de Debian en CLI.</li>
+                    <li>Gestion des droits (chmod, chown) et utilisateurs.</li>
+                    <li>Mise en place d'un serveur LAMP (Linux, Apache, MariaDB, PHP).</li>
+                </ul>
+                <div class="code-block">sudo apt update && sudo apt install apache2</div>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-cisco" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Cisco CCNA</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Configuration de base Switch/Routeur (IOS).</li>
+                    <li>Mise en place de la sécurité des ports.</li>
+                    <li>Routage statique et dynamique (OSPF).</li>
+                </ul>
+                <div class="code-block">Switch(config)# interface vlan 10<br>Switch(config-if)# ip address 192.168.10.1 255.255.255.0</div>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-vmware" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>VMware ESXi</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Installation de l'hyperviseur ESXi (Type 1).</li>
+                    <li>Création et gestion de machines virtuelles.</li>
+                    <li>Configuration des vSwitch et PortGroups.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-vlan" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>VLAN & Routage</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Création de VLANs pour isoler les services (Compta, RH, Invités).</li>
+                    <li>Configuration du routage Inter-VLAN (Router-on-a-stick).</li>
+                    <li>Mise en place de trunks 802.1Q.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-pfsense" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Pfsense / Stormshield</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Installation et configuration de l'interface WAN/LAN.</li>
+                    <li>Création de règles de filtrage firewall.</li>
+                    <li>Mise en place d'un portail captif et serveur VPN.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-veeam" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Veeam Backup</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Stratégie de sauvegarde 3-2-1.</li>
+                    <li>Sauvegarde de VMs entières.</li>
+                    <li>Restauration granulaire de fichiers spécifiques.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-glpi" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>GLPI</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Inventaire automatique avec FusionInventory.</li>
+                    <li>Gestion des tickets d'incidents (Helpdesk).</li>
+                    <li>Suivi du cycle de vie du matériel.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-centreon" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Centreon / Nagios</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Installation du serveur de supervision.</li>
+                    <li>Ajout d'hôtes (serveurs, switchs) via SNMP.</li>
+                    <li>Configuration des alertes par mail.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-cyber" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Sensibilisation Cyber</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Gestion des mots de passe robustes.</li>
+                    <li>Reconnaissance du Phishing.</li>
+                    <li>Principe du moindre privilège.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-htmlcss" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>HTML5 / CSS3</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Structure sémantique des pages web.</li>
+                    <li>Design responsive avec Flexbox et Grid.</li>
+                    <li>Animations CSS et media queries.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-php" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>PHP & SQL</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Création de pages dynamiques.</li>
+                    <li>Connexion à une base de données (PDO).</li>
+                    <li>Requêtes SQL (SELECT, INSERT, UPDATE).</li>
+                </ul>
+                <div class="code-block">$bdd = new PDO('mysql:host=localhost;dbname=test', 'root', '');</div>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-bash" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Bash & PowerShell</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Automatisation de tâches récurrentes (Sauvegarde, Création user).</li>
+                    <li>Manipulation de fichiers et pipes.</li>
+                </ul>
+                <div class="code-block">New-Item -ItemType Directory -Path "C:\Backup"</div>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-python" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Python</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Bases de l'algorithmique (Boucles, Conditions).</li>
+                    <li>Scripts simples d'automatisation réseau.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="skill-git" class="skill-page">
+        <div class="skill-container">
+            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
+            <h1>Git / GitHub</h1>
+            <section class="details-card">
+                <h2>Compétences acquises</h2>
+                <ul>
+                    <li>Commandes de base (add, commit, push).</li>
+                    <li>Gestion des branches.</li>
+                    <li>Collaboration sur GitHub.</li>
+                </ul>
+                <div class="code-block">git commit -m "Mise à jour du portfolio"</div>
+            </section>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Enzo Goupil - Portfolio BTS SIO</p>
+    </div>
+
+    <script>
+        // Fonction pour afficher une compétence spécifique
+        function showSkill(skillId) {
+            // Cacher la vue principale
+            document.getElementById('home-view').style.display = 'none';
+            
+            // Cacher toutes les pages compétences
+            const allPages = document.querySelectorAll('.skill-page');
+            allPages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Afficher la compétence demandée
+            const selectedSkill = document.getElementById('skill-' + skillId);
+            if(selectedSkill) {
+                selectedSkill.style.display = 'block';
+                // Remonter en haut de page
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Fonction pour revenir à l'accueil
+        function showHome(anchor = null) {
+            // Cacher toutes les pages compétences
+            const allPages = document.querySelectorAll('.skill-page');
+            allPages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Afficher la vue principale
+            document.getElementById('home-view').style.display = 'block';
+
+            // Si un ancrage est fourni (ex: #competences)
+            if(anchor) {
+                // On cible l'élément et on force le scroll dessus
+                const target = document.querySelector(anchor);
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // (Optionnel) Met à jour l'URL sans casser le scroll
+                    history.pushState(null, null, anchor);
+                }
+            } else {
+                // Sinon retour tout en haut
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                history.pushState(null, null, window.location.pathname);
+            }
+        }
+    </script>
+
+</body>
+</html>
