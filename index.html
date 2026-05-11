@@ -370,9 +370,9 @@
                     <div class="card-header"><i class="fa-solid fa-server"></i><h3>Système & Réseau</h3></div>
                     <div class="skill-items">
                         <div class="skill-tag" onclick="showSkill('windows')"><i class="fa-brands fa-windows"></i> Windows Server</div>
-                        <div class="skill-tag" onclick="showSkill('linux')"><i class="fa-brands fa-linux"></i> Linux (Debian)</div>
-                        <div class="skill-tag" onclick="showSkill('cisco')"><i class="fa-solid fa-network-wired"></i> Cisco CCNA</div>
-                        <div class="skill-tag" onclick="showSkill('vmware')"><i class="fa-solid fa-box-open"></i> VMware ESXi</div>
+                        <div class="skill-tag" onclick="showSkill('linux')"><i class="fa-brands fa-linux"></i> Linux </div>
+                        <div class="skill-tag" onclick="showSkill('cisco')"><i class="fa-solid fa-network-wired"></i> Cisco </div>
+                        <div class="skill-tag" onclick="showSkill('vmware')"><i class="fa-solid fa-box-open"></i> virtualisation </div>
                         <div class="skill-tag" onclick="showSkill('vlan')"><i class="fa-solid fa-cloud"></i> VLAN & Routage</div>
                     </div>
                 </div>
@@ -380,10 +380,10 @@
                 <div class="skill-card">
                     <div class="card-header"><i class="fa-solid fa-shield-halved"></i><h3>Sécurité & Outils</h3></div>
                     <div class="skill-items">
-                        <div class="skill-tag" onclick="showSkill('pfsense')"><i class="fa-solid fa-fire"></i> Pfsense / Stormshield</div>
-                        <div class="skill-tag" onclick="showSkill('veeam')"><i class="fa-solid fa-floppy-disk"></i> Veeam Backup</div>
+                        <div class="skill-tag" onclick="showSkill('pfsense')"><i class="fa-solid fa-fire"></i> règles et Sécurisation </div>
+                        <div class="skill-tag" onclick="showSkill('veeam')"><i class="fa-solid fa-floppy-disk"></i> Backup et sauvegarde </div>
                         <div class="skill-tag" onclick="showSkill('glpi')"><i class="fa-solid fa-ticket"></i> GLPI</div>
-                        <div class="skill-tag" onclick="showSkill('centreon')"><i class="fa-solid fa-eye"></i> Centreon / Nagios</div>
+                        <div class="skill-tag" onclick="showSkill('centreon')"><i class="fa-solid fa-eye"></i> Supervision</div>
                         <div class="skill-tag" onclick="showSkill('cyber')"><i class="fa-solid fa-lock"></i> Sensibilisation Cyber</div>
                     </div>
                 </div>
@@ -391,10 +391,9 @@
                 <div class="skill-card">
                     <div class="card-header"><i class="fa-solid fa-code"></i><h3>Développement</h3></div>
                     <div class="skill-items">
-                        <div class="skill-tag" onclick="showSkill('htmlcss')"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</div>
+                        <div class="skill-tag" onclick="showSkill('htmlcss')"><i class="fa-brands fa-html5"></i> HTML / CSS</div>
                         <div class="skill-tag" onclick="showSkill('php')"><i class="fa-brands fa-php"></i> PHP & SQL</div>
-                        <div class="skill-tag" onclick="showSkill('bash')"><i class="fa-solid fa-terminal"></i> Bash & PowerShell</div>
-                        <div class="skill-tag" onclick="showSkill('python')"><i class="fa-brands fa-python"></i> Python</div>
+                        <div class="skill-tag" onclick="showSkill('bash')"><i class="fa-solid fa-terminal"></i> PowerShell</div>
                         <div class="skill-tag" onclick="showSkill('git')"><i class="fa-brands fa-git-alt"></i> Git / GitHub</div>
                     </div>
                 </div>
@@ -432,7 +431,7 @@
                 <div class="info-card">
                     <i class="fa-solid fa-person-skiing info-icon" style="color:#a855f7;"></i>
                     <h3>Ski & musculation</h3>
-                    <p>Avec ma famille ou mé amis.⛷️</p>
+                    <p>Avec ma famille ou mes amis.⛷️</p>
                 </div>
                 <div class="info-card">
                     <i class="fa-solid fa-dumbbell info-icon" style="color:#eab308;"></i>
@@ -457,7 +456,6 @@
                         <i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> Caen, Normandie
                     </div>
                     <div style="display:flex; gap:15px; margin-top:20px;">
-                        <a href="#" style="font-size:1.5rem;"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="#" style="font-size:1.5rem;"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
@@ -489,7 +487,7 @@
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
-                    <li>Installation et configuration de Windows Server 2019/2022.</li>
+                    <li>Installation et configuration de Windows Server .</li>
                     <li>Gestion des utilisateurs et groupes via Active Directory (AD DS).</li>
                     <li>Configuration DNS, DHCP et Stratégies de groupe (GPO).</li>
                 </ul>
@@ -500,15 +498,14 @@
     <div id="skill-linux" class="skill-page">
         <div class="skill-container">
             <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
-            <h1>Linux (Debian)</h1>
+            <h1>Linux </h1>
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
                     <li>Installation de Debian en CLI.</li>
-                    <li>Gestion des droits (chmod, chown) et utilisateurs.</li>
+                    <li>Gestion des droits et utilisateurs.</li>
                     <li>Mise en place d'un serveur LAMP (Linux, Apache, MariaDB, PHP).</li>
                 </ul>
-                <div class="code-block">sudo apt update && sudo apt install apache2</div>
             </section>
         </div>
     </div>
@@ -516,15 +513,14 @@
     <div id="skill-cisco" class="skill-page">
         <div class="skill-container">
             <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
-            <h1>Cisco CCNA</h1>
+            <h1>Cisco </h1>
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
-                    <li>Configuration de base Switch/Routeur (IOS).</li>
+                    <li>Configuration de base Switch/Routeur .</li>
                     <li>Mise en place de la sécurité des ports.</li>
-                    <li>Routage statique et dynamique (OSPF).</li>
+                    <li>Routage statique et dynamique .</li>
                 </ul>
-                <div class="code-block">Switch(config)# interface vlan 10<br>Switch(config-if)# ip address 192.168.10.1 255.255.255.0</div>
             </section>
         </div>
     </div>
@@ -532,11 +528,11 @@
     <div id="skill-vmware" class="skill-page">
         <div class="skill-container">
             <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
-            <h1>VMware ESXi</h1>
+            <h1>virtualisation</h1>
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
-                    <li>Installation de l'hyperviseur ESXi (Type 1).</li>
+                    <li>Installation d'un hyperviseur .</li>
                     <li>Création et gestion de machines virtuelles.</li>
                     <li>Configuration des vSwitch et PortGroups.</li>
                 </ul>
@@ -551,8 +547,8 @@
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
-                    <li>Création de VLANs pour isoler les services (Compta, RH, Invités).</li>
-                    <li>Configuration du routage Inter-VLAN (Router-on-a-stick).</li>
+                    <li>Création de VLANs pour isoler les services .</li>
+                    <li>Configuration du routage Inter-VLAN .</li>
                     <li>Mise en place de trunks 802.1Q.</li>
                 </ul>
             </section>
@@ -562,7 +558,7 @@
     <div id="skill-pfsense" class="skill-page">
         <div class="skill-container">
             <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
-            <h1>Pfsense / Stormshield</h1>
+            <h1> règles et Sécurisation </h1>
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
@@ -577,13 +573,13 @@
     <div id="skill-veeam" class="skill-page">
         <div class="skill-container">
             <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
-            <h1>Veeam Backup</h1>
+            <h1>Backup et sauvegarde</h1>
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
-                    <li>Stratégie de sauvegarde 3-2-1.</li>
+                    <li>Stratégie de sauvegarde .</li>
                     <li>Sauvegarde de VMs entières.</li>
-                    <li>Restauration granulaire de fichiers spécifiques.</li>
+                    <li>Restauration de fichiers spécifiques.</li>
                 </ul>
             </section>
         </div>
@@ -596,8 +592,8 @@
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
-                    <li>Inventaire automatique avec FusionInventory.</li>
-                    <li>Gestion des tickets d'incidents (Helpdesk).</li>
+                    <li>Inventaire et gestion du parc informatique.</li>
+                    <li>Gestion des tickets d'incidents .</li>
                     <li>Suivi du cycle de vie du matériel.</li>
                 </ul>
             </section>
@@ -607,12 +603,12 @@
     <div id="skill-centreon" class="skill-page">
         <div class="skill-container">
             <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
-            <h1>Centreon / Nagios</h1>
+            <h1>Supervision</h1>
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
                     <li>Installation du serveur de supervision.</li>
-                    <li>Ajout d'hôtes (serveurs, switchs) via SNMP.</li>
+                    <li>Ajout d'hôtes (serveurs, switchs) .</li>
                     <li>Configuration des alertes par mail.</li>
                 </ul>
             </section>
@@ -637,13 +633,12 @@
     <div id="skill-htmlcss" class="skill-page">
         <div class="skill-container">
             <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
-            <h1>HTML5 / CSS3</h1>
+            <h1>HTML / CSS</h1>
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
-                    <li>Structure sémantique des pages web.</li>
-                    <li>Design responsive avec Flexbox et Grid.</li>
-                    <li>Animations CSS et media queries.</li>
+                    <li>Pages web en HTML.</li>
+                    <li>Animations CSS .</li>
                 </ul>
             </section>
         </div>
@@ -656,11 +651,9 @@
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
-                    <li>Création de pages dynamiques.</li>
-                    <li>Connexion à une base de données (PDO).</li>
-                    <li>Requêtes SQL (SELECT, INSERT, UPDATE).</li>
+                    <li>Connexion à une base de données .</li>
+                    <li>Requêtes SQL .</li>
                 </ul>
-                <div class="code-block">$bdd = new PDO('mysql:host=localhost;dbname=test', 'root', '');</div>
             </section>
         </div>
     </div>
@@ -668,27 +661,12 @@
     <div id="skill-bash" class="skill-page">
         <div class="skill-container">
             <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
-            <h1>Bash & PowerShell</h1>
+            <h1>PowerShell</h1>
             <section class="details-card">
                 <h2>Compétences acquises</h2>
                 <ul>
                     <li>Automatisation de tâches récurrentes (Sauvegarde, Création user).</li>
-                    <li>Manipulation de fichiers et pipes.</li>
-                </ul>
-                <div class="code-block">New-Item -ItemType Directory -Path "C:\Backup"</div>
-            </section>
-        </div>
-    </div>
-
-    <div id="skill-python" class="skill-page">
-        <div class="skill-container">
-            <div class="btn-back" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Retour</div>
-            <h1>Python</h1>
-            <section class="details-card">
-                <h2>Compétences acquises</h2>
-                <ul>
-                    <li>Bases de l'algorithmique (Boucles, Conditions).</li>
-                    <li>Scripts simples d'automatisation réseau.</li>
+                    <li>Manipulation de fichiers .</li>
                 </ul>
             </section>
         </div>
@@ -705,7 +683,6 @@
                     <li>Gestion des branches.</li>
                     <li>Collaboration sur GitHub.</li>
                 </ul>
-                <div class="code-block">git commit -m "Mise à jour du portfolio"</div>
             </section>
         </div>
     </div>
